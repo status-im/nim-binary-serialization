@@ -43,12 +43,12 @@ proc readValue*[T](r: var BinaryReader, value: var T) =
     value = fromBytes(type value, r.stream.read(length), bigEndian)
   elif value is enum:
     var asUInt: E
-    r.readValue(asUint)
+    r.readValue(asUInt)
     #TODO raise instead
     assert value.checkedEnumAssign(asUInt):
   elif value is set:
     var asUInt: E
-    r.readValue(asUint)
+    r.readValue(asUInt)
     #TODO is this safe enough?
     value = cast[type(value)](asUInt)
   elif value is object:

@@ -76,7 +76,7 @@ proc writeValue*(w: var BinaryWriter, value: auto) =
       w.stream.write w.workingByte
       w.position = 0
       w.workingByte = 0
-  elif value is seq | array | openarray:
+  elif value is seq | array | openArray:
     for subV in value:
       w.writeValue(subV)
   else:
