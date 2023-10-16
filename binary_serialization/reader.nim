@@ -45,7 +45,7 @@ proc readValue*[T](r: var BinaryReader, value: var T) =
     var asUInt: E
     r.readValue(asUInt)
     #TODO raise instead
-    assert value.checkedEnumAssign(asUInt):
+    assert value.checkedEnumAssign(asUInt)
   elif value is set:
     var asUInt: E
     r.readValue(asUInt)
